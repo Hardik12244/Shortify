@@ -10,6 +10,7 @@ const PORT = 3000;
 connectToMongo(process.env.MONGO_URL)
     .then(()=>{console.log("db connected")})
 
+    
 app.use('/url',routes); 
 
 app.listen(PORT,()=>console.log("Connected"))

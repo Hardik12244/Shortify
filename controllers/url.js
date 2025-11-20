@@ -1,21 +1,31 @@
 const shortid = require('shortid');
 const URL = require('../models/url') 
 
-function GenerateUrl(req,res){
+async function GenerateUrl(req,res){
     const body = req.body;
+    console.log(body);
     const shortId = shortid();
-    if(!body.url) return res.status(400).json({error : "Url not found"})
-
+    if(!body.url) {
+        console.log("error");
+        return res.status(400).json({error : "Url not found"})
+    }
     URL.create({
         shortId:shortId,
         redirectUrl : body.url,
-        viewRecord : [],
+        visitingRecord : [],
     })
     return res.json({
         id:shortId,
     })
-    }
+}
+
+async function totalAnalytics(req,res){
+    const shortId = req.params.shortId;
+    const result = await URL.findOne({shortId});
+    return res.json({totalClicks : result.visitingRecord.length , analytics : result.visitingRecord})
+}
 
     module.exports={
         GenerateUrl,
+        totalAnalytics,
     }
