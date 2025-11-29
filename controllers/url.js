@@ -14,8 +14,11 @@ async function GenerateUrl(req,res){
         redirectUrl : body.url,
         visitingRecord : [],
     })
-    return res.json({
-        id:shortId,
+    // return res.json({
+    //     id:shortId,
+    // })
+    return res.render("home",{
+        id : shortId
     })
 }
 

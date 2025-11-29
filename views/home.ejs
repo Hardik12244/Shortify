@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/url">
+        <h1>Generate Your Url</h1>
+
+        <% if (locals.id) { %>
+            <div>Url Generated :https://localhost:3000/url/<%= id %></div>
+        <% } %>
+
+        <div class="flex">
+            <h2>Enter your url</h2>
+            <input type="text" name="url" id="" placeholder="https://.google.com">
+            <button type="submit">Generate</button>
+        </div>
+        <div>
+
+        </div>
+    </form>
+</body>
+</html>
