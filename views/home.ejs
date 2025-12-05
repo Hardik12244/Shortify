@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <form method="POST" action="/url">
-        <h1>Generate Your Url</h1>
 
-        <% if (locals.id) { %>
-            <div>Url Generated :https://localhost:3000/url/<%= id %></div>
-        <% } %>
+<body
+    style="margin: 0;font-family: Poppins, sans-serif;background: linear-gradient(135deg, #0f0f0f, #1a2456, #001f3f);color: white;display: flex;flex-direction: column;align-items: center;min-height: 100vh;padding: 30px;">
+    <div>
+        <form method="POST" action="/url">
+            <h1
+                style="font-size: 42px;letter-spacing: 2px;margin-bottom: 75px;margin-left: 100px;color: #00eaff;text-shadow: 0 0 10px #00eaff, 0 0 20px #0077b6;">
+                Generate Your Url</h1>
+            <% if (locals.id) { %>
+                <div style="margin-top:15px;color:#00eaff;font-size:18px;background: rgba(0, 255, 255, 0.1);padding:12px 20px;border-radius:8px;box-shadow:0 0 10px #00eaff;width: fit-content;margin-bottom: 50px">Url Generated : http://localhost:3000/url/<%= id %>
+                </div>
+                <% } %>
 
-        <div class="flex">
-            <h2>Enter your url</h2>
-            <input type="text" name="url" id="" placeholder="https://.google.com">
-            <button type="submit">Generate</button>
-        </div>
-        <div>
-
-        </div>
-    </form>
+                    <div>
+                        <input
+                            style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);"
+                            type="text" name="url" id="" placeholder="https://google.com">
+                        <button
+                            style="padding: 12px 28px;background: #111;color: #0ff;border: 2px solid #0ff;border-radius: 8px;font-size: 18px;font-weight: bold;cursor: pointer;transition: 0.3s;text-transform: uppercase;letter-spacing: 2px;box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;margin-left: 25px;"
+                            type="submit">Generate</button>
+                    </div>
+                    
+        </form>
+    </div>
+    <div style="font-size: larger;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <% if (locals.urls) { %>
+            <table
+                style="border-collapse: collapse;margin-top: 30px;width: 80%;max-width: 750px;background: rgba(255,255,255,0.1);backdrop-filter: blur(10px);border-radius: 12px;overflow: hidden;color: white;">
+                <thead style="background: rgba(0,255,255,0.2);">
+                    <th style="padding: 14px;">S.No</th>
+                    <th style="padding: 14px;">Shortid</th>
+                    <th style="padding: 14px;">Url</th>
+                    <th style="padding: 14px;">TotalClicks</th>
+                </thead>
+                <tbody>
+                    <% urls.forEach((url,index)=> { %>
+                        <tr style="text-align:center; transition:0.3s;">
+                            <td style="padding: 14px;">
+                                <%= index+1 %>
+                            </td>
+                            <td style="padding: 14px;">
+                                <%= url.shortId %>
+                            </td>
+                            <td style="padding: 14px;color:#00e5ff;">
+                                <%= url.redirectUrl %>
+                            </td>
+                            <td style="padding: 14px;">
+                                <%= url.visitingRecord.length %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <% } %>
+    </div>
 </body>
+
 </html>
