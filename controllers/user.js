@@ -1,4 +1,3 @@
-const {v4:uuid} = require('uuid');
 const User = require('../models/user');
 const {setUser} = require('../services/auth')
 
@@ -20,9 +19,8 @@ async function handleUserLogin(req,res){
         return res.render("signup",{
         error : "Invalid Credentials"
     });
-    const id = uuid();
-    setUser(id,user);
-    res.cookie("uid",id);   
+    const token = setUser(user);
+    res.cookie("uid",token);   
     return res.redirect("/");
 
 }
