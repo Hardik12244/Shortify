@@ -11,10 +11,14 @@ const ulrSchema = new Schema({
         type:String,
         required:true,
     },
-    visitingRecord:[{timestamp:{type:Number}},]
+    visitingRecord:[{timestamp:{type:Number}},],
+    createdBy:{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "user",
+        },
     },
     {timestamps:true},
-)
+);
 
 const URL = mongoose.model('url',ulrSchema);
 module.exports = URL;

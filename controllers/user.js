@@ -1,5 +1,8 @@
+const {v4:uuid} = require('uuid');
 const User = require('../models/user');
-async function handleUserSignUp(){
+const {setUser} = require('../services/auth')
+
+async function handleUserSignUp(req,res){
     const {name,email,password}= req.body;
 
     await User.create({
@@ -10,13 +13,16 @@ async function handleUserSignUp(){
     return res.redirect("/");
 }
 
-async function handleUserLogin(){
+async function handleUserLogin(req,res){
     const {email,password}= req.body;
     const user = await User.findOne({email,password});
     if(!user) 
-        return res.render("login",{
+        return res.render("signup",{
         error : "Invalid Credentials"
     });
+    const id = uuid();
+    setUser(id,user);
+    res.cookie("uid",id);   
     return res.redirect("/");
 
 }

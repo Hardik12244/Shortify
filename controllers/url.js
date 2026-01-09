@@ -9,10 +9,12 @@ async function GenerateUrl(req,res){
         console.log("error");
         return res.status(400).json({error : "Url not found"})
     }
-    URL.create({
+    await URL.create({
         shortId:shortId,
         redirectUrl : body.url,
         visitingRecord : [],
+        createdBy : req.user._id,
+
     })
     // return res.json({
     //     id:shortId,
