@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp</title>
 </head>
-<body>
-    <h1>SignUp</h1>
+<body style="margin: 0;font-family: Poppins, sans-serif;background: linear-gradient(135deg, #0f0f0f, #1a2456, #001f3f);color: white;display: flex;flex-direction: column;align-items: center;min-height: 100vh;padding: 30px;">
+    
+    <h1 style="font-size: 42px;letter-spacing: 2px;margin-bottom: 75px;margin-left: 100px;color: #00eaff;text-shadow: 0 0 10px #00eaff, 0 0 20px #0077b6;">SignUp</h1>
     <form action="/user" method="post">
-        <label>name</label>
-        <input type="text" required name="name">
+        
+        <input style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);" type="text" required placeholder="name"  name="name">
 
-        <label>email</label>
-        <input type="text" required name="email">
+        <input style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);" type="text" required placeholder="email"name="email">
 
-        <label>password</label>
-        <input type="text" required name="password">
+        <input style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);" type="text" required placeholder="password" name="password">
 
-        <button type="submit">SignUp</button>
+        <button style="padding: 12px 28px;background: #111;color: #0ff;border: 2px solid #0ff;border-radius: 8px;font-size: 18px;font-weight: bold;cursor: pointer;transition: 0.3s;text-transform: uppercase;letter-spacing: 2px;box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;margin-left: 25px;" type="submit">SignUp</button>
     </form>
 </body>
 </html>
