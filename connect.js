@@ -1,13 +1,19 @@
 const mongoose = require("mongoose");
 
-let isConnected = false;
-
 async function connectToMongo(url) {
-  if (isConnected) return;
+  if (mongoose.connection.readyState === 1) {
+    return;
+  }
 
-  await mongoose.connect(url);
-  isConnected = true;
-  console.log("Mongo connected");
+  try {
+    await mongoose.connect(url, {
+      bufferCommands: false,
+    });
+    console.log("Mongo connected");
+  } catch (err) {
+    console.error("Mongo connection error:", err);
+    throw err;
+  }
 }
 
 module.exports = {
