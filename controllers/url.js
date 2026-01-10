@@ -15,8 +15,10 @@ async function GenerateUrl(req,res){
         createdBy : req.user._id,
 
     })
+    const baseUrl = `${req.protocol}://${req.get("host")}`;
     return res.render("home",{
-        id : shortId
+        id : shortId,
+        baseUrl
     })
 }
 

@@ -22,6 +22,8 @@ app.use(express.static("assests"));
 
 app.set("view engine","ejs");
 app.set("views",path.resolve("./views"));
+app.set("trust proxy", 1);
+
 
 app.use('/url',restriction_login,routes); 
 app.use('/',check_login,staticrouter)
