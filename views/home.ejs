@@ -148,6 +148,57 @@
         tbody tr:hover {
             background: rgba(0, 0, 0, 0.03);
         }
+@media (max-width: 600px) {
+
+    .card {
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    input {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    .generated-box {
+        font-size: 16px;
+    }
+
+    .button-row {
+        flex-direction: row;  
+        justify-content: center;
+    }
+
+    .button-row button {
+        width: auto;
+    }
+
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 30px;
+    }
+
+    table {
+        min-width: 600px;
+        font-size: 14px;
+    }
+    body {
+        justify-content: flex-start;
+        padding-top: 130px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .generated-box {
+        padding-left: 10px;
+        padding-right: 10px;
+    } 
+}
+
     </style>
 </head>
 
@@ -168,7 +219,7 @@
 
                     <input type="text" name="url" placeholder="https://google.com" required>
 
-                    <div style="display:flex; gap:12px;">
+                    <div class="button-row" style="display:flex; gap:12px;">
                         <button class="btn-primary" type="submit">Generate</button>
 
                         <% if (locals.id) { %>
@@ -182,6 +233,7 @@
     </div>
 
     <% if (locals.urls) { %>
+        <div class="table-wrapper">
         <table>
             <thead>
                 <tr>
@@ -210,6 +262,7 @@
                     <% }) %>
             </tbody>
         </table>
+        </div>
         <% } %>
 
 

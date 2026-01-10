@@ -5,58 +5,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shortify</title>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:wght@500;600;700&family=Poppins:wght@500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="icon" href="/10714993.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background: #f9f9fb;
+            color: #111827;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .title {
+            font-size: 42px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: black;
+            font-family: 'DM Sans', sans-serif;
+            text-align: center;
+        }
+
+        .form-wrapper {
+            margin-top: 40px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .input-field {
+            width: 250px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            color: #111827;
+            font-size: 16px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            border-color: #ef4444;
+        }
+
+        .btn-primary {
+            padding: 12px 28px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #dc2626;
+        }
+
+        .bottom-box-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .bottom-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background-color: #f2f3f5;
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .bottom-text {
+            font-weight: 500;
+            font-size: 20px;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-secondary {
+            padding: 10px 18px;
+            background: #111827;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    input {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    .generated-box {
+        font-size: 16px;
+    }
+
+    .button-row {
+        flex-direction: row;  
+        justify-content: center;
+    }
+
+    .button-row button {
+        width: auto;
+    }
+    body {
+        justify-content: flex-start;
+        padding-top: 130px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .generated-box {
+        padding-left: 10px;
+        padding-right: 10px;
+    } 
+}
+    </style>
 </head>
 
-<body
-    style="margin: 0;font-family: Poppins, sans-serif;background: #f9f9fb;color: #111827;display: flex;flex-direction: column;align-items: center;min-height: 100vh;justify-content: center;">
+<body>
 
-    <div style="background: white;padding: 40px 50px;border-radius: 20px;box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-">
-        <h1
-            style="font-size: 42px;letter-spacing: 2px;margin-bottom: 40px;color: black;font-family: 'DM Sans', sans-serif;display: flex; justify-content: center;">
-            Login</h1>
+    <div class="card">
+        <h1 class="title">Login</h1>
 
-        <div style="margin-top: 40px;">
+        <div class="form-wrapper">
+            <form action="/user/login" method="post">
 
-            <form
-                style="display: flex;flex-direction: column; gap: 20px;justify-content: center;align-items: center; padding-left: 10px;padding-right: 10px;"
-                action="/user/login" method="post">
+                <input class="input-field" type="text" placeholder="email" required name="email">
 
-                <input style="width: 250px;padding: 12px 15px;border-radius: 10px;border: 1px solid #e5e7eb;background: rgb(255, 255, 255);color: #111827;font-size: 16px;outline: none;font-family: 'Inter', sans-serif;
-" onfocus="this.style.borderColor='#ef4444'" onblur="this.style.borderColor='#e5e7eb'" type="text" placeholder="email"
-                    required name="email">
+                <input class="input-field" type="text" placeholder="password" required name="password">
 
-                <input style="width: 250px;padding: 12px 15px;border-radius: 10px;border: 1px solid #e5e7eb;background: rgb(255, 255, 255);color: #111827;font-size: 16px;outline: none;font-family: 'Inter', sans-serif;
-" onfocus="this.style.borderColor='#ef4444'" onblur="this.style.borderColor='#e5e7eb'" type="text"
-                    placeholder="password" required name="password">
-
-                <button
-                    style="padding: 12px 28px;background: #ef4444;color: white;border:none;border-radius: 10px; font-size: 18px;font-weight: bold;cursor: pointer;font-family: 'DM Sans', sans-serif;font-weight: bold;"
-                    onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='#ef4444'"
-                    type="submit">Login</button>
+                <button class="btn-primary" type="submit">Login</button>
             </form>
         </div>
 
-        <div style="display: flex; justify-content: center;">
-            <div
-                style="display: inline-flex;align-items: center;justify-content: center;gap: 16px;background-color: #f2f3f5;padding: 10px 16px;border-radius: 10px;margin-top: 40px">
-                <div
-                    style="font-weight: 500;font-size: 20px; text-align:justify;color: black;display: flex;justify-content: center; align-items: center;font-family: 'DM Sans', sans-serif;">
-                    New User ?</div>
-                <a href="/signup">
-                    <button
-                        style="padding: 10px 18px;background: #111827;color: white;border:none;border-radius: 10px; font-size: 14px;font-weight: bold;cursor: pointer;font-family: 'DM Sans', sans-serif;font-weight: bold;"
-                        type="submit">SignUp</button>
-                </a>
+        <div class="bottom-box-wrapper">
+            <div class="bottom-box">
+                <div class="bottom-text">New User ?</div>
 
+                <a href="/signup">
+                    <button class="btn-secondary" type="button">SignUp</button>
+                </a>
             </div>
         </div>
-
     </div>
 
 </body>
