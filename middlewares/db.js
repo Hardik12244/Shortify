@@ -9,6 +9,4 @@ const { connectToMongo } = require("../connect");
     return res.status(500).send("Database connection failed");
   }
 };
-module.exports = {
-    dbMiddleware,
-}
+module.exports = {dbMiddleware};

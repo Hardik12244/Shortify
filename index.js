@@ -1,8 +1,7 @@
 require ('dotenv').config();
 
 const express = require("express");
-const {connectToMongo} = require("./connect");
-const dbMiddleware = require("./middlewares/db");
+const {dbMiddleware} = require("./middlewares/db");
 const ejs = require("ejs");
 const path = require("path");
 const cookieParser = require("cookie-parser");

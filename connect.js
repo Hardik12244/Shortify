@@ -16,4 +16,6 @@ async function connectToMongo(url) {
   }
 }
 
-module.exports = connectToMongo;
+module.exports = {
+  connectToMongo,
+};
