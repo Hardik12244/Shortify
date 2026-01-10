@@ -10,7 +10,11 @@ async function handleUserSignUp(req,res){
         password
     })
     const token = setUser(user);
-    res.cookie("uid",token);  
+    res.cookie("uid",token,{
+        httpOnly:true,
+        secure:true,
+        sameSite:"None",
+    });  
     return res.redirect("/");
 }
 
@@ -22,7 +26,11 @@ async function handleUserLogin(req,res){
         error : "Invalid Credentials"
     });
     const token = setUser(user);
-    res.cookie("uid",token);   
+    res.cookie("uid",token,{
+        httpOnly:true,
+        secure:true,
+        sameSite:"None",
+    });   
     return res.redirect("/");
 
 }

@@ -1,4 +1,5 @@
 require ('dotenv').config();
+
 const express = require("express");
 const {connectToMongo} = require("./connect");
 const ejs = require("ejs");
@@ -13,23 +14,28 @@ const staticrouter = require("./routes/staticrouter");
 const userRoute = require('./routes/user');
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static("assests"));
-const PORT = 3000;
+
+app.set("view engine","ejs");
+app.set("views",path.resolve("./views"));
 
 app.use('/url',restriction_login,routes); 
 app.use('/',check_login,staticrouter)
 app.use('/user',userRoute);
 
-
-app.set("view engine","ejs");
-app.set("views",path.resolve("./views"));
-
 connectToMongo(process.env.MONGO_URL)
     .then(()=>{
         console.log("db connected")
-        app.listen(PORT,()=>console.log("Connected at port 3000"))
+        // app.listen(PORT,()=>console.log("Connected at port 3000"))
+        
     })
     .catch(err=>console.log(err));
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(3000, () => console.log("Running on 3000"));
+}
+module.exports = app;
