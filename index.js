@@ -2,12 +2,12 @@ require ('dotenv').config();
 
 const express = require("express");
 const {connectToMongo} = require("./connect");
+const dbMiddleware = require("./middlewares/db");
 const ejs = require("ejs");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const {restriction_login,check_login} = require('./middlewares/restriction')
-
 
 const routes = require("./routes/url");
 const staticrouter = require("./routes/staticrouter");
@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "assets")));
+app.use(dbMiddleware);
 
 app.set("view engine","ejs");
 app.set("views",path.resolve("./views"));
@@ -28,15 +29,6 @@ app.set("trust proxy", 1);
 app.use('/url',restriction_login,routes); 
 app.use('/',check_login,staticrouter)
 app.use('/user',userRoute);
-
-(async () => {
-  try {
-    await connectToMongo(process.env.MONGO_URL);
-    console.log("MongoDB connected");
-  } catch (err) {
-    console.error("Mongo connection failed:", err);
-  }
-})();
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(3000, () => console.log("Running on 3000"));
