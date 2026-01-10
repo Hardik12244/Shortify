@@ -3,68 +3,216 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortify</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:wght@500;600;700&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/10714993.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(180deg, #f5f5f7, #ffffff);
+            color: #111827;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 50px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(20px);
+            max-width: 550px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 38px;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        input {
+            width: 260px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #f9fafb;
+            font-size: 16px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+            background: white;
+        }
+
+        .btn-primary {
+            padding: 12px 28px;
+            background: linear-gradient(180deg, #ff5f5f, #ef4444);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+            transition: 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.03);
+            background: linear-gradient(180deg, #ff4b4b, #dc2626);
+        }
+
+        .btn-secondary {
+            padding: 10px 20px;
+            background: #111827;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: 0.2s;
+        }
+
+        .btn-secondary:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        .generated-box {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #f8fafc, #ffffff);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            font-size: 19px;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 40px;
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        thead {
+            background: #f3f4f6;
+            font-weight: 600;
+        }
+
+        tbody tr {
+            transition: 0.2s;
+        }
+
+        tbody tr:hover {
+            background: rgba(0, 0, 0, 0.03);
+        }
+    </style>
 </head>
 
-<body
-    style="margin: 0;font-family: Poppins, sans-serif;background: linear-gradient(135deg, #0f0f0f, #1a2456, #001f3f);color: white;display: flex;flex-direction: column;align-items: center;min-height: 100vh;padding: 30px;">
-    <div>
+<body>
+
+    <div class="card">
+        <h1>Generate Your URL</h1>
+
         <form method="POST" action="/url">
-            <h1
-                style="font-size: 42px;letter-spacing: 2px;margin-bottom: 75px;margin-left: 100px;color: #00eaff;text-shadow: 0 0 10px #00eaff, 0 0 20px #0077b6;">
-                Generate Your Url</h1>
+
             <% if (locals.id) { %>
-                <div style="margin-top:15px;color:#00eaff;font-size:18px;background: rgba(0, 255, 255, 0.1);padding:12px 20px;border-radius:8px;box-shadow:0 0 10px #00eaff;width: fit-content;margin-bottom: 50px">Url Generated : http://localhost:3000/url/<%= id %>
+                <div class="generated-box">
+                    URL Generated: http://localhost:3000/url/<%= id %>
+
                 </div>
                 <% } %>
 
-                    <div>
-                        <input
-                            style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);"
-                            type="text" name="url" id="" placeholder="https://google.com">
-                        <button
-                            style="padding: 12px 28px;background: #111;color: #0ff;border: 2px solid #0ff;border-radius: 8px;font-size: 18px;font-weight: bold;cursor: pointer;transition: 0.3s;text-transform: uppercase;letter-spacing: 2px;box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;margin-left: 25px;"
-                            type="submit">Generate</button>
+
+                    <input type="text" name="url" placeholder="https://google.com" required>
+
+                    <div style="display:flex; gap:12px;">
+                        <button class="btn-primary" type="submit">Generate</button>
+
+                        <% if (locals.id) { %>
+
+                            <button class="btn-secondary" type="button" onclick="window.location.href='/'">Back</button>
+                            <% } %>
+
                     </div>
-                    
+
         </form>
     </div>
-    <div style="font-size: larger;">
-        <br />
-        <br />
-        <br />
-        <br />
-        <% if (locals.urls) { %>
-            <table
-                style="border-collapse: collapse;margin-top: 30px;width: 80%;max-width: 750px;background: rgba(255,255,255,0.1);backdrop-filter: blur(10px);border-radius: 12px;overflow: hidden;color: white;">
-                <thead style="background: rgba(0,255,255,0.2);">
-                    <th style="padding: 14px;">S.No</th>
-                    <th style="padding: 14px;">Shortid</th>
-                    <th style="padding: 14px;">Url</th>
-                    <th style="padding: 14px;">TotalClicks</th>
-                </thead>
-                <tbody>
-                    <% urls.forEach((url,index)=> { %>
-                        <tr style="text-align:center; transition:0.3s;">
-                            <td style="padding: 14px;">
-                                <%= index+1 %>
-                            </td>
-                            <td style="padding: 14px;">
-                                <%= url.shortId %>
-                            </td>
-                            <td style="padding: 14px;color:#00e5ff;">
-                                <%= url.redirectUrl %>
-                            </td>
-                            <td style="padding: 14px;">
-                                <%= url.visitingRecord.length %>
-                            </td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
-            <% } %>
-    </div>
+
+    <% if (locals.urls) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Short ID</th>
+                    <th>URL</th>
+                    <th>Total Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% urls.forEach((url, index)=> { %>
+                    <tr>
+                        <td>
+                            <%= index + 1 %>
+                        </td>
+                        <td>
+                            <%= url.shortId %>
+                        </td>
+                        <td>
+                            <%= url.redirectUrl %>
+                        </td>
+                        <td>
+                            <%= url.visitingRecord.length %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+        <% } %>
+
+
 </body>
 
 </html>

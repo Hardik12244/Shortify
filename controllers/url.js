@@ -6,8 +6,7 @@ async function GenerateUrl(req,res){
     console.log(body);
     const shortId = shortid();
     if(!body.url) {
-        console.log("error");
-        return res.status(400).json({error : "Url not found"})
+        return res.redirect("/?error=URL%20is%20required");
     }
     await URL.create({
         shortId:shortId,
@@ -16,9 +15,6 @@ async function GenerateUrl(req,res){
         createdBy : req.user._id,
 
     })
-    // return res.json({
-    //     id:shortId,
-    // })
     return res.render("home",{
         id : shortId
     })

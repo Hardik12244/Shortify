@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
+    <title>Shortify</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:wght@500;600;700&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/10714993.png" type="image/png">
+
 </head>
-<body style="margin: 0;font-family: Poppins, sans-serif;background: linear-gradient(135deg, #0f0f0f, #1a2456, #001f3f);color: white;display: flex;flex-direction: column;align-items: center;min-height: 100vh;padding: 30px;">
-    
-    <h1 style="font-size: 42px;letter-spacing: 2px;margin-bottom: 75px;margin-left: 100px;color: #00eaff;text-shadow: 0 0 10px #00eaff, 0 0 20px #0077b6;">SignUp</h1>
-    <form action="/user" method="post">
-        
-        <input style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);" type="text" required placeholder="name"  name="name">
 
-        <input style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);" type="text" required placeholder="email"name="email">
+<body
+    style="margin: 0;font-family: Poppins, sans-serif;background: #f9f9fb;color: #111827;display: flex;flex-direction: column;align-items: center;min-height: 100vh;justify-content: center;">
 
-        <input style="width: 350px;padding: 12px 15px;border-radius: 10px;border: 2px solid #00e5ff;background: rgba(255,255,255,0.15);color: white;font-size: 16px;outline: none;backdrop-filter: blur(8px);" type="text" required placeholder="password" name="password">
+    <div style="background: white;padding: 40px 50px;border-radius: 20px;box-shadow: 0 20px 40px rgba(0,0,0,0.06);">
 
-        <button style="padding: 12px 28px;background: #111;color: #0ff;border: 2px solid #0ff;border-radius: 8px;font-size: 18px;font-weight: bold;cursor: pointer;transition: 0.3s;text-transform: uppercase;letter-spacing: 2px;box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;margin-left: 25px;" type="submit">SignUp</button>
-    </form>
+        <h1
+            style="font-size: 42px;letter-spacing: 2px;margin-bottom: 40px;color: black;font-family: 'DM Sans', sans-serif;display: flex; justify-content: center;">
+            SignUp</h1>
+
+        <div style="margin-top: 40px;">
+
+            <form
+                style="display: flex;flex-direction: column; gap: 20px;justify-content: center;align-items: center; padding-left: 10px;padding-right: 10px;"
+                action="/user" method="post">
+
+                <input style="width: 250px;padding: 12px 15px;border-radius: 10px;border: 1px solid #e5e7eb;background: rgb(255, 255, 255);color: #111827;font-size: 16px;outline: none;font-family: 'Inter', sans-serif;
+" onfocus="this.style.borderColor='#ef4444'" onblur="this.style.borderColor='#e5e7eb'" type="text" required
+                    placeholder="name" name="name">
+
+                <input style="width: 250px;padding: 12px 15px;border-radius: 10px;border: 1px solid #e5e7eb;background: rgb(255, 255, 255);color: #111827;font-size: 16px;outline: none;font-family: 'Inter', sans-serif;
+" onfocus="this.style.borderColor='#ef4444'" onblur="this.style.borderColor='#e5e7eb'" type="text" required
+                    placeholder="email" name="email">
+
+                <input style="width: 250px;padding: 12px 15px;border-radius: 10px;border: 1px solid #e5e7eb;background: rgb(255, 255, 255);color: #111827;font-size: 16px;outline: none;font-family: 'Inter', sans-serif;
+" onfocus="this.style.borderColor='#ef4444'" onblur="this.style.borderColor='#e5e7eb'" type="text" required
+                    placeholder="password" name="password">
+
+                <button
+                    style="padding: 12px 28px;background: #ef4444;color: white;border:none;border-radius: 10px; font-size: 18px;font-weight: bold;cursor: pointer;font-family: 'DM Sans', sans-serif;font-weight: bold;"
+                    onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='#ef4444'"
+                    type="submit">SignUp</button>
+            </form>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <div
+                style="display: inline-flex;align-items: center;justify-content: center;gap: 16px;background-color: #f2f3f5;padding: 10px 36px;border-radius: 10px;margin-top: 40px;">
+
+                <div
+                    style="font-weight: 500;font-size: 20px; text-align:justify;color: black;display: flex;justify-content: center; align-items: center;font-family: 'DM Sans', sans-serif;">
+                    Old User ?</div>
+                <a href="/login">
+                    <button
+                        style="padding: 10px 20px;background: #111827;color: white;border:none;border-radius: 10px; font-size: 16px;font-weight: bold;cursor: pointer;font-family: 'DM Sans', sans-serif;font-weight: bold;"
+                        type="button">login</button>
+                </a>
+
+            </div>
+        </div>
+
+
+    </div>
+
 </body>
+
 </html>
